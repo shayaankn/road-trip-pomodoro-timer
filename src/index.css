@@ -1,0 +1,85 @@
+/* @font-face {
+  font-family: 'PixelifySans';
+  src: url('./assets/fonts/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+/* body {
+  font-family: 'PixelifySans', sans-serif;
+} */
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 20px 0; */
+  margin-top: 20px;
+}
+
+.time {
+  font-size: 3rem;
+  /* margin-bottom: 10px; */
+}
+
+.time-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.time-button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.time-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* .main {
+  height: 300px;
+  width: 300px;
+  background-color: brown;
+} */
+
+.main {
+  width: 40vw;
+  height: 40vw; /* Maintain a square */
+  max-width: 400px;
+  max-height: 400px;
+  background-color: brown;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 95vw;
+    height: 95vw; /* Maintain a square */
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+.toggle-button {
+  /* font-family: 'PixelifySans', sans-serif; */
+  padding: 5px 10px;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
