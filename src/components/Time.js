@@ -1,18 +1,3 @@
-// import React from 'react';
-
-// const Time = ({ time }) => {
-//   const minutes = Math.floor(time / 60);
-//   const seconds = time % 60;
-
-//   return (
-//     <div className="time">
-//       {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-//     </div>
-//   );
-// };
-
-// export default Time;
-
 import React from 'react';
 
 const Time = ({ time, isRunning, adjustTime }) => {
@@ -24,9 +9,6 @@ const Time = ({ time, isRunning, adjustTime }) => {
 
   return (
     <div className="time-container">
-      {/* <div className="time">
-        {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-      </div> */}
       <div className="time-buttons">
         <button 
           onClick={() => adjustTime(5 * 60)} 
