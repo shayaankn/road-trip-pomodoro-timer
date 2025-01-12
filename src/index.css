@@ -94,7 +94,7 @@ body {
 
 .foreground-running {
   background-image: url('./assets/images/foreground_1.png');
-  animation: scrollRoad 5s linear infinite;
+  animation: scrollRoad 2.5s linear infinite;
 }
 
 .foreground-stopped {
@@ -113,7 +113,8 @@ body {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
+    transform: translateX(-39%);
   }
 }
 
