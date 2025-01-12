@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Main = () => {
+const Main = ({ isRunning }) => {
+  const [foregroundClass, setForegroundClass] = useState('');
+
+  useEffect(() => {
+    setForegroundClass(isRunning ? 'foreground-running' : 'foreground-stopped');
+  }, [isRunning]);
+
   return (
     <div className="main">
-      <p>Car Animation will appear here</p>
+      <div className="background" />
+      <div className={`foreground ${foregroundClass}`} />
+      <img className="car" src={require('../assets/images/car.png')} alt="Car" />
     </div>
   );
 };

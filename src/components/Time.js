@@ -1,4 +1,8 @@
 import React from 'react';
+import upBtn from '../assets/images/up_btn.png';
+import upBtnDisabled from '../assets/images/up_btn_disabled.png';
+import downBtn from '../assets/images/down_btn.png';
+import downBtnDisabled from '../assets/images/down_btn_disabled.png';
 
 const Time = ({ time, isRunning, adjustTime }) => {
   const minutes = Math.floor(time / 60);
@@ -15,14 +19,22 @@ const Time = ({ time, isRunning, adjustTime }) => {
           disabled={isUpDisabled} 
           className="time-button"
         >
-          Up
+          <img 
+            src={isUpDisabled ? upBtnDisabled : upBtn} 
+            alt="Increase Time" 
+            className="time-btn-image"
+          />
         </button>
         <button 
           onClick={() => adjustTime(-5 * 60)} 
           disabled={isDownDisabled} 
           className="time-button"
         >
-          Down
+          <img 
+            src={isDownDisabled ? downBtnDisabled : downBtn} 
+            alt="Decrease Time" 
+            className="time-btn-image"
+          />
         </button>
       </div>
       <div className="time">

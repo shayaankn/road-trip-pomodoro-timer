@@ -16,29 +16,29 @@ const Parent = () => {
     if (isRunning) {
       intervalId = setInterval(() => {
         const now = Date.now();
-        const elapsed = Math.floor((now - startTime) / 1000); // Total elapsed time
+        const elapsed = Math.floor((now - startTime) / 1000);
         const remainingTime = adjustedTime - elapsed;
 
         if (remainingTime <= 0) {
           setIsRunning(false);
           clearInterval(intervalId);
-          setTime(adjustedTime); // Reset to adjusted time
+          setTime(adjustedTime);
         } else {
           setTime(remainingTime);
         }
       }, 1000);
     }
 
-    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
+    return () => clearInterval(intervalId);
   }, [isRunning, startTime, adjustedTime]);
 
   const toggleTimer = () => {
     if (isRunning) {
-      setIsRunning(false); // Stop the timer
-      setTime(adjustedTime); // Reset to the adjusted time
+      setIsRunning(false);
+      setTime(adjustedTime);
     } else {
       setStartTime(Date.now());
-      setIsRunning(true); // Start the timer
+      setIsRunning(true);
     }
   };
 
@@ -47,7 +47,7 @@ const Parent = () => {
     if (newTime >= 5 * 60 && newTime <= 45 * 60) {
       setAdjustedTime(newTime);
       if (!isRunning) {
-        setTime(newTime); // Update time only if the timer is not running
+        setTime(newTime);
       }
     }
   };
@@ -55,7 +55,7 @@ const Parent = () => {
   return (
     <div className="parent">
       <Time time={time} isRunning={isRunning} adjustTime={adjustTime} />
-      <Main />
+      <Main isRunning={isRunning} />
       <Button toggleTimer={toggleTimer} isRunning={isRunning} />
     </div>
   );

@@ -9,6 +9,10 @@
   font-family: 'PixelifySans', sans-serif;
 } */
 
+body {
+  background-color: #000;
+}
+
 .parent {
   display: flex;
   flex-direction: column;
@@ -26,6 +30,7 @@
 }
 
 .time {
+  color: #fff;
   font-size: 3rem;
 }
 
@@ -35,14 +40,21 @@
 }
 
 .time-button {
-  padding: 5px 10px;
-  font-size: 1rem;
+  padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
 }
 
 .time-button:disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 1;
+}
+
+.time-image {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .main {
@@ -50,13 +62,59 @@
   height: 40vw;
   max-width: 400px;
   max-height: 400px;
-  background-color: brown;
   position: relative;
   overflow: hidden;
-
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.foreground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  z-index: 2;
+}
+
+.foreground-running {
+  background-image: url('./assets/images/foreground_1.png');
+  animation: scrollRoad 5s linear infinite;
+}
+
+.foreground-stopped {
+  background-image: url('./assets/images/foreground_0.png');
+}
+
+.car {
+  position: absolute;
+  bottom: 28%;
+  width: 30%;
+  z-index: 3;
+}
+
+@keyframes scrollRoad {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -69,9 +127,18 @@
 }
 
 .toggle-button {
-  /* font-family: 'PixelifySans', sans-serif; */
-  padding: 5px 10px;
+  border: none;
+  background: none;
+  padding: 0;
   margin: 20px 0;
-  font-size: 1.2rem;
   cursor: pointer;
+  display: inline-block;
+  width: 92px;
+  height: 50px;
+}
+
+.button-image {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
